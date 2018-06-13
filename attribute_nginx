@@ -1,0 +1,28 @@
+default['nginx']['user']                         = 'www-data'
+default['nginx']['worker_processes']             = 'auto'
+default['nginx']['pid']                          = '/run/nginx.pid'
+
+default['nginx']['worker_connections']           = 1024
+
+default['nginx']['sendfile']                     = 'on'
+default['nginx']['tcp_nodelay']                  = 'on'
+default['nginx']['tcp_nopush']                   = 'on'
+default['nginx']['keepalive_timeout']            = 65
+default['nginx']['type_hash_max_size']           = 2048
+
+default['nginx']['default_type']                 = 'application/octet-stream'
+
+default['nginx']['include']                      = '/etc/nginx/mime.types'
+
+
+default['nginx']['post_include'] = {
+  '/etc/nginx/conf.d/*.conf'   => true,
+  '/etc/nginx/sites-enabled/*' => true,
+}
+
+default['nginx']['ssl_protocols']                = 'TLSv1 TLSv1.1 TLSv1.2'
+default['nginx']['ssl_prefer_server_ciphers']    = 'on'
+default['nginx']['gzip']                         = 'on'
+default['nginx']['gzip_disable']                 = 'msie6'
+
+

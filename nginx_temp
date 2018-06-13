@@ -1,0 +1,95 @@
+# Managed by chef. Please do not modify locally
+
+user <%= node['nginx']['user'] %>;
+worker_processes <%= node['nginx']['worker_processes'] %>;
+pid <%= node['nginx']['pid'] %>;
+
+include /etc/nginx/modules-enabled/*.conf;
+
+
+events {
+  worker_connections <%= node['nginx']['worker_connections'] %>;
+  # multi_accept on;
+}
+
+http {
+
+  ##
+  # Basic Settings
+  ##
+  sendfile <%= node['nginx']['sendfile'] %>;
+  tcp_nopush <%= node['nginx']['tcp_nopush'] %>;
+  tcp_nodelay <%= node['nginx']['tcp_nodelay'] %>;
+  types_hash_max_size <%= node['nginx']['types_hash_max_size'] %>;
+  keepalive_timeout  <%= node['nginx']['keepalive_timeout'] %>;
+  # server_tokens off;
+
+  # server_names_hash_bucket_size 64;
+  # server_name_in_redirect off;
+
+
+
+
+  default_type  <%= node['nginx']['default_type'] %>;
+  include       <%= node['nginx']['include'] %>;
+
+  ##
+  # SSL Settings
+  ##
+ 
+  ssl_protocols  <%= node['nginx']['ssl_protocols'] %>;
+  ssl_prefer_server_ciphers  <%= node['nginx']['ssl_prefer_server_ciphers'] %>;
+
+  ##
+  # Logging Settings
+  ##
+
+
+  error_log <%= node['nginx']['error_log'] %>;
+  access_log <%= node['nginx']['access_log'] %>;
+
+  ##
+  # Gzip Settings
+  ##
+
+  gzip  <%= node['nginx']['gzip'] %>;
+  gzip_disable     "<%= node['nginx']['gzip_disable'] %>";
+  # gzip_vary on;
+  # gzip_proxied any;
+  # gzip_comp_level 6;
+  # gzip_buffers 16 8k;
+  # gzip_http_version 1.1;
+  # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+  ##
+  # Virtual Host Configs
+  ##
+
+
+  include <%= node['nginx']['dir'] %>/conf.d/*.conf;
+  include <%= node['nginx']['dir'] %>/sites-enabled/*;
+  
+}
+#mail {
+#       # See sample authentication script at:
+#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+# 
+#       # auth_http localhost/auth.php;
+#       # pop3_capabilities "TOP" "USER";
+#       # imap_capabilities "IMAP4rev1" "UIDPLUS";
+# 
+#       server {
+#               listen     localhost:110;
+#               protocol   pop3;
+#               proxy      on;
+#       }
+# 
+#       server {
+#               listen     localhost:143;
+#               protocol   imap;
+#               proxy      on;
+#       }
+#}
+
+
+
