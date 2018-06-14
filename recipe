@@ -22,4 +22,171 @@ service 'nginx' do
         action [:enable,:start]
 end     
 
+cookbook_file "/lib/systemd/system/metrics-poll.service" do
+        source "timer/metrics-poll.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/etc/systemd/system/metrics-poll.timer" do
+        source "timer/metrics-poll.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/mailqueue.service" do
+        source "timer/mailqueue.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/etc/systemd/system/mailqueue.timer" do
+        source "timer/mailqueue.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/lib/systemd/system/watchreport-systems.service" do
+        source "timer/watchreport-systems.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/etc/systemd/system/watchreport-systems.timer" do
+        source "timer/watchreport-systems.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+cookbook_file "/etc/systemd/system/watchreport-ops-day.timer" do
+        source "timer/watchreport-ops-day.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/watchreport-ops-day.service" do
+        source "timer/watchreport-ops-day.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/trimming.timer" do
+        source "timer/trimming.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/etc/systemd/system/trimming.service" do
+        source "timer/trimming.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/lib/systemd/system/opsdb-deletion.timer" do
+        source "timer/opsdb-deletion.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/opsdb-deletion.service" do
+        source "timer/opsdb-deletion.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/opsutils_kibana.timer" do
+        source "timer/opsutils_kibana.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/etc/systemd/system/opsutils_kibana.service" do
+        source "timer/opsutils_kibana.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/watchreport-ops-night.timer" do
+        source "timer/watchreport-ops-night.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/watchreport-ops-night.service" do
+        source "timer/watchreport-ops-night.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/watchreport-secondlvl.timer" do
+        source "timer/watchreport-secondlvl.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/watchreport-secondlvl.service" do
+        source "timer/watchreport-secondlvl.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/etc/systemd/system/abuse-notify-summary.timer" do
+        source "timer/abuse-notify-summary.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/abuse-notify-summary.service" do
+        source "timer/abuse-notify-summary.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/lib/systemd/system/systemd-tmpfiles-clean.timer" do
+        source "timer/systemd-tmpfiles-clean.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/systemd-tmpfiles-clean.service" do
+        source "timer/systemd-tmpfiles-clean.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+
+cookbook_file "/lib/systemd/system/opsroom-varnishremove.timer" do
+        source "timer/opsroom-varnishremove.timer"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+cookbook_file "/lib/systemd/system/opsroom-varnishremove.service" do
+        source "timer/opsroom-varnishremove.service"
+        owner  'root'
+        group  'root'
+        mode   '0644'
+end
+
+  
 
