@@ -1,12 +1,3 @@
-#
-# Cookbook:: install_nginx
-# Recipe:: default
-#
-# Copyright:: 2018, The Authors, All Rights Reserved.
-#
-#
-
-
 package 'nginx' do
         action :install
 end
@@ -35,6 +26,13 @@ cookbook_file "/etc/systemd/system/metrics-poll.timer" do
         mode   '0644'
 end
 
+service 'metrics-poll.service' do
+    action [:enable, :start]
+end
+service 'metrics-poll.timer' do
+    action [:enable, :start]
+end
+
 
 cookbook_file "/etc/systemd/system/mailqueue.service" do
         source "timer/mailqueue.service"
@@ -47,6 +45,13 @@ cookbook_file "/etc/systemd/system/mailqueue.timer" do
         owner  'root'
         group  'root'
         mode   '0644'
+end
+
+service 'mailqueue.service' do
+    action [:enable, :start]
+end
+service 'mailqueue.service' do
+    action [:enable, :start]
 end
 
 
@@ -63,6 +68,13 @@ cookbook_file "/etc/systemd/system/watchreport-systems.timer" do
         mode   '0644'
 end
 
+service 'watchreport-systems.service' do
+    action [:enable, :start]
+end
+service 'watchreport-systems.timer' do
+    action [:enable, :start]
+end
+
 cookbook_file "/etc/systemd/system/watchreport-ops-day.timer" do
         source "timer/watchreport-ops-day.timer"
         owner  'root'
@@ -74,6 +86,13 @@ cookbook_file "/lib/systemd/system/watchreport-ops-day.service" do
         owner  'root'
         group  'root'
         mode   '0644'
+end
+
+service 'watchreport-ops-day.timer' do
+    action [:enable, :start]
+end
+service 'watchreport-ops-day.service' do
+    action [:enable, :start]
 end
 
 
@@ -90,6 +109,13 @@ cookbook_file "/etc/systemd/system/trimming.service" do
         mode   '0644'
 end
 
+service 'trimming.service' do
+    action [:enable, :start]
+end
+service 'trimming.timer' do
+    action [:enable, :start]
+end
+
 
 cookbook_file "/lib/systemd/system/opsdb-deletion.timer" do
         source "timer/opsdb-deletion.timer"
@@ -102,6 +128,13 @@ cookbook_file "/lib/systemd/system/opsdb-deletion.service" do
         owner  'root'
         group  'root'
         mode   '0644'
+end
+
+service 'opsdb-deletion.service' do
+    action [:enable, :start]
+end
+service 'opsdb-deletion.timer' do
+    action [:enable, :start]
 end
 
 
@@ -118,6 +151,13 @@ cookbook_file "/etc/systemd/system/opsutils_kibana.service" do
         mode   '0644'
 end
 
+service 'opsutils_kibana.service' do
+    action [:enable, :start]
+end
+service 'opsutils_kibana.timer' do
+    action [:enable, :start]
+end
+
 
 cookbook_file "/etc/systemd/system/watchreport-ops-night.timer" do
         source "timer/watchreport-ops-night.timer"
@@ -130,6 +170,13 @@ cookbook_file "/lib/systemd/system/watchreport-ops-night.service" do
         owner  'root'
         group  'root'
         mode   '0644'
+end
+
+service 'watchreport-ops-night.service' do
+    action [:enable, :start]
+end
+service 'watchreport-ops-night.timer' do
+    action [:enable, :start]
 end
 
 
@@ -146,6 +193,12 @@ cookbook_file "/lib/systemd/system/watchreport-secondlvl.service" do
         mode   '0644'
 end
 
+service 'watchreport-secondlvl.service' do
+    action [:enable, :start]
+end
+service 'watchreport-secondlvl.timer' do
+    action [:enable, :start]
+end
 
 cookbook_file "/etc/systemd/system/abuse-notify-summary.timer" do
         source "timer/abuse-notify-summary.timer"
@@ -160,20 +213,12 @@ cookbook_file "/lib/systemd/system/abuse-notify-summary.service" do
         mode   '0644'
 end
 
-
-cookbook_file "/lib/systemd/system/systemd-tmpfiles-clean.timer" do
-        source "timer/systemd-tmpfiles-clean.timer"
-        owner  'root'
-        group  'root'
-        mode   '0644'
+service 'abuse-notify-summary.service' do
+    action [:enable, :start]
 end
-cookbook_file "/lib/systemd/system/systemd-tmpfiles-clean.service" do
-        source "timer/systemd-tmpfiles-clean.service"
-        owner  'root'
-        group  'root'
-        mode   '0644'
+service 'abuse-notify-summary.timer' do
+    action [:enable, :start]
 end
-
 
 cookbook_file "/lib/systemd/system/opsroom-varnishremove.timer" do
         source "timer/opsroom-varnishremove.timer"
@@ -188,5 +233,11 @@ cookbook_file "/lib/systemd/system/opsroom-varnishremove.service" do
         mode   '0644'
 end
 
+service 'opsroom-varnishremove.service' do
+    action [:enable, :start]
+end
+service 'opsroom-varnishremove.timer' do
+    action [:enable, :start]
+end
   
 
