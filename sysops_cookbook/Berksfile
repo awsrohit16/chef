@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+source 'https://supermarket.chef.io'
+
+cookbook 'onecom-nginx',  path: '/home/rohit/CHEF/chef-repo/cookbooks/onecom-nginx'
+cookbook 'onecom-baseline', path: '/home/rohit/CHEF/chef-repo/cookbooks/onecom-baseline'
+cookbook 'onecom-secrets', path: '/home/rohit/CHEF/chef-repo/cookbooks/onecom-secrets'
+cookbook 'onecom-accounts', path: '/home/rohit/CHEF/chef-repo/cookbooks/onecom-accounts'
+cookbook 'onecom-components', path: '/home/rohit/CHEF/chef-repo/cookbooks/onecom-components'
+
+metadata
