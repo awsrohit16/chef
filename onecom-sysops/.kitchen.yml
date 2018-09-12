@@ -1,0 +1,30 @@
+---
+driver:
+  name: qemu
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+
+verifier:
+  root_path: /home/kitchen
+
+platforms:
+  - name: ubuntu-sysops
+    driver:
+            image: /home/kitchen/onecomxenial.qcow2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[onecom-sysops::default]
+      - recipe[onecom-nginx::default] 
+    attributes:
+            onecom: 
+              apt-proxy: aptproxy1.env.infra-cph3.one.com
+    apt:
+     force-update: true
+          
