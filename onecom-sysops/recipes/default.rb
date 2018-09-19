@@ -21,6 +21,43 @@ template '/etc/nginx/sites-available/default' do
 end  
 
 
+cookbook_file '/etc/nginx/mailqueue.conf' do
+  source 'mailqueue.conf'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+  notifies :reload, 'service[nginx]', :delayed
+end
+
+cookbook_file '/etc/nginx/php.conf' do
+  source 'php.conf'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+  notifies :reload, 'service[nginx]', :delayed
+end
+
+cookbook_file '/etc/nginx/conf.d/ipblock.conf' do
+  source 'ipblock.conf'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+  notifies :reload, 'service[nginx]', :delayed
+end
+
+cookbook_file '/etc/nginx/conf.d/varnish.conf' do
+  source 'varnish.conf'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
+  notifies :reload, 'service[nginx]', :delayed
+end
+
+
 include_recipe 'onecom-timers::default'
 
 node.default['onecom']['timers']['jobs']['metrics-poll'] = {
