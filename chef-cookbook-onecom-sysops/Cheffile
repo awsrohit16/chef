@@ -1,0 +1,3 @@
+site 'https://minimarket.one.com/v1' 
+cookbook 'onecom-sysops', :path => '.'
+
